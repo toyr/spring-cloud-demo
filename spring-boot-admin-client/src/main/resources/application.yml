@@ -1,0 +1,31 @@
+server:
+  port: 8100
+spring:
+  application:
+    name: admin-client
+  ## spring boot admin
+  boot:
+    admin:
+      client:
+        url: http://127.0.0.1:8000
+        instance:
+          service-url: http://127.0.0.1:${server.port}
+        username: admin
+        password: admin
+
+
+#  endpoints com.example.springbootadminserver.config
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: '*'
+
+logging:
+  level:
+    de.codecentric.*: DEBUG
+    org.springframework.web: DEBUG

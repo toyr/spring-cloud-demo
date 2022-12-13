@@ -1,0 +1,29 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: admin-server
+  security:
+    user:
+      name: "admin"
+      password: "admin"
+  boot:
+    admin:
+      ui:
+        title: t-boot
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    enabled-by-default: true
+    web:
+      #      base-path: /actuator
+      exposure:
+        include: '*'
+logging:
+  level:
+    de.codecentric.*: DEBUG
+    org.springframework.web: DEBUG
