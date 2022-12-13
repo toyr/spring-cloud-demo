@@ -12,6 +12,22 @@ spring:
     admin:
       ui:
         title: t-boot
+      notify:
+        mail:
+          from: 544810359@qq.com
+          to: 544810359@qq.com
+  mail:
+    host: smtp.qq.com
+    username: 544810359@qq.com
+    password: xx  # ?????
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
 
 management:
   endpoint:
@@ -20,10 +36,5 @@ management:
   endpoints:
     enabled-by-default: true
     web:
-      #      base-path: /actuator
       exposure:
         include: '*'
-logging:
-  level:
-    de.codecentric.*: DEBUG
-    org.springframework.web: DEBUG
