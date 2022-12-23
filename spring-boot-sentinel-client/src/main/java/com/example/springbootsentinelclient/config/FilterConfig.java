@@ -15,7 +15,7 @@ import javax.servlet.Filter;
 @Configuration
 public class FilterConfig {
 
-    @Bean
+    /*@Bean
     public FilterRegistrationBean sentinelFilterRegistration() {
         FilterRegistrationBean<Filter> registration = new FilterRegistrationBean<>();
         registration.setFilter(new CommonFilter());
@@ -23,5 +23,5 @@ public class FilterConfig {
         registration.setName("sentinelFilter");
         registration.setOrder(1);
         return registration;
-    }
+    }*/
 }

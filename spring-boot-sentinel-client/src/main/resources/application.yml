@@ -29,6 +29,9 @@ spring:
         password: nacos
       config:
         server-addr: ${spring.cloud.nacos.discovery.server-addr}
+  config:
+    import:
+      - optional:nacos:sentinel-client.yaml
     ## sentinel config
     sentinel:
       enabled: true # Sentinel自动化配置是否生效 默认：true
@@ -37,25 +40,17 @@ spring:
         port: 8719 # 端口配置会在应用对应的机器上启动一个 Http Server，该 Server 会与 Sentinel 控制台做交互。比如 Sentinel 控制台添加了一个限流规则，会把规则数据 push 给这个 Http Server 接收，Http Server 再将规则注册到 Sentinel 中。
         dashboard: 127.0.0.1:8858   # sentinel-dashboard 控制台地址
         clientIp: 127.0.0.1   # 此配置的客户端IP将被注册到 Sentinel Server 端
-  config:
-    import:
-      - optional:nacos:sentinel-client.yaml
-#      datasource:
-#        #================限流===============
-#        flow:
-#          nacos:
-#            server-addr: 127.0.0.1:8848
-#            #?sentinel????namespeace??
-#            namespace: 6db12247-153b-4d0c-bef6-5c7c5e48faa3
-#            #nacos??????dataId,??dataId???${spring.application.name}??????????????????????
-#            data-id: ${spring.application.name}-flow-rules
-#            #nacos??????groupId????????
-#            group-id: SENTINEL_GROUP
-#            #???????org.springframework.cloud.alibaba.sentinel.datasource.RuleType
-#            rule-type: flow
-#            #nacos???????
-#            username: nacos
-#            password: nacos
+      datasource:
+        #================限流===============
+        flow:
+          nacos:
+            server-addr: 127.0.0.1:8848
+            namespace: public
+            data-id: hello-sentinel-flow-rule
+            group-id: DEFAULT_GROUP
+            rule-type: flow
+            username: nacos
+            password: nacos
 #        #================降级===============
 #        degrade:
 #          nacos:
