@@ -1,0 +1,32 @@
+server:
+  port: 8300
+spring:
+  application:
+    name: sentinel-client-2
+  main:
+    allow-bean-definition-overriding: true
+  ## spring boot admin
+  boot:
+    admin:
+      client:
+        url: http://127.0.0.1:8000  # springboot admin server
+        instance:
+          service-url: http://127.0.0.1:${server.port}
+        username: admin
+        password: admin
+  cloud:
+    sentinel:
+      eager: true
+      enabled: true #启动立即加载初始化, 而不是有流量之后再和控制台交互, 默认false
+      transport:
+        port: 9719  #与控制台的通信端口
+        dashboard: 127.0.0.1:8858 #与控制台的地址
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: '*'
