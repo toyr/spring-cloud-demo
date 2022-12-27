@@ -29,4 +29,12 @@ spring:
 logging:
   level:
     org.springframework.cloud.*: debug
-
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+        exclude: env
+  endpoint:
+    health:
+      show-details: always
