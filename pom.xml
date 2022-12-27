@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.11</version>
+        <version>2.7.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
@@ -18,11 +18,40 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>spring-boot-admin-client</module>
-        <module>spring-boot-admin-server</module>
-        <module>spring-boot-sentinel-client</module>
-        <module>spring-boot-sentinel-client-2</module>
+        <module>springboot-admin-client</module>
+        <module>springboot-admin-server</module>
+        <module>springboot-sentinel-client</module>
+        <module>springboot-sentinel-client-2</module>
+        <module>springboot-gateway-server</module>
+        <module>springboot-gateway-client-a</module>
     </modules>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>2021.0.4</spring-cloud.version>
+        <spring-cloud-alibaba.version>2021.0.4.0</spring-cloud-alibaba.version>
+        <spring.boot.admin.client.version>2.7.3</spring.boot.admin.client.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- spring-cloud-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 
     <build>

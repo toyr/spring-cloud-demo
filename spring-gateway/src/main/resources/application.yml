@@ -1,0 +1,26 @@
+server:
+  port: 8400
+spring:
+  application:
+    name: gataway-demos
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      password: nacos
+      username: nacos
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: public
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        username: nacos
+        password: nacos
+  config:
+    import:
+      - optional:nacos:sentinel-client.yaml
+nacos:
+  gateway:
+    route:
+      config:
+        data-id: server-routes
+        group: DEFAULT_GROUP

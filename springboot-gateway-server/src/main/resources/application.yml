@@ -1,0 +1,22 @@
+server:
+  port: 9001
+  servlet:
+    context-path: /sgs
+spring:
+  application:
+    name: springboot-gateway-server
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: springboot-gateway-client-a
+          uri: lb://springboot-gateway-client-a
+          predicates:
+            - Path=/sgca/**
+        - id: springboot-gateway-client-b
+          uri: lb://springboot-gateway-client-b
+          predicates:
+            - Path=/sgcb/**
