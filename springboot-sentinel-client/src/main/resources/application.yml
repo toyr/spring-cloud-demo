@@ -96,3 +96,12 @@ spring:
 #feign:
 #  sentinel:
 #    enabled: true
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: '*'

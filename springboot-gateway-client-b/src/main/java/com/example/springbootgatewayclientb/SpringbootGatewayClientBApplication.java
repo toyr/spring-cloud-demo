@@ -1,4 +1,4 @@
-package com.example.springbootgatewayserver;
+package com.example.springbootgatewayclientb;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class SpringbootGatewayServerApplication {
+public class SpringbootGatewayClientBApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringbootGatewayServerApplication.class, args);
+        SpringApplication.run(SpringbootGatewayClientBApplication.class, args);
     }
 
 }

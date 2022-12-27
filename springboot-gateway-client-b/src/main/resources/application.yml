@@ -1,10 +1,10 @@
 server:
-  port: 9002
+  port: 9003
   servlet:
-    context-path: /sgca
+    context-path: /sgcb
 spring:
   application:
-    name: springboot-gateway-client-a
+    name: springboot-gateway-client-b
   cloud:
     nacos:
       discovery:

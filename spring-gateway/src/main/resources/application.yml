@@ -3,6 +3,14 @@ server:
 spring:
   application:
     name: gataway-demos
+  boot:
+    admin:
+      client:
+        url: http://127.0.0.1:8000  # springboot admin server
+        instance:
+          service-url: http://127.0.0.1:${server.port}
+        username: admin
+        password: admin
   cloud:
     nacos:
       server-addr: 127.0.0.1:8848
@@ -24,3 +32,12 @@ nacos:
       config:
         data-id: server-routes
         group: DEFAULT_GROUP
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: '*'
