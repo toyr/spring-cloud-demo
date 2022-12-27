@@ -2,10 +2,7 @@ package com.example.springbootgatewayserver.controller;
 
 import com.example.springbootgatewayserver.route.DynamicRouteServiceImpl;
 import com.example.springbootgatewayserver.route.MyRouteDefinition;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -32,8 +29,8 @@ public class RouteSettingController {
         }
     }
 
-    @PostMapping("delete")
-    public String delete(String id) {
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable String id) {
         try{
             dynamicRouteService.delete(id);
             return "success";

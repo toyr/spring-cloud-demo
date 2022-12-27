@@ -30,9 +30,13 @@ public class DynamicRouteServiceImpl implements ApplicationEventPublisherAware {
         this.publisher = applicationEventPublisher;
     }
 
-    // 新增路由
-    public void add(MyRouteDefinition myRouteDefinition) {
-        routeDefinitionWriter.save(Mono.just(myRouteDefinition.getRouteDefinition()));
+    //新增路由
+    public void add(MyRouteDefinition myRouteDefinition){
+        /**
+         * 新增的Actuator Endpoint，刷新路由的时候，先加载路由配置到内存中，
+         * 然后再使用RefreshRoutesEvent事件刷新内存中路由配置。
+         */
+        routeDefinitionWriter.save(Mono.just(myRouteDefinition.getRouteDefinition())).subscribe();
         this.publisher.publishEvent(new RefreshRoutesEvent(this));
     }
 
