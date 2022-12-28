@@ -5,12 +5,30 @@ server:
 spring:
   application:
     name: springboot-gateway-client-a
+  ## spring boot admin
+  boot:
+    admin:
+      client:
+        url: http://127.0.0.1:8000
+        instance:
+          service-url: http://127.0.0.1:${server.port}
+        username: admin
+        password: admin
   cloud:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
-        password: nacos
-        username: nacos
         namespace: public
         group: DEFAULT_GROUP
+        password: nacos
+        username: nacos
         ip: 127.0.0.1
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+        exclude: env
+  endpoint:
+    health:
+      show-details: always
