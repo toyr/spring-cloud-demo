@@ -12,6 +12,8 @@ spring:
         url: http://127.0.0.1:8000
         instance:
           service-url: http://127.0.0.1:${server.port}
+          managementUrl: http://127.0.0.1:${server.port}${server.servlet.context-path}/actuator
+          health-url: http://127.0.0.1:${server.port}${server.servlet.context-path}/actuator/health
         username: admin
         password: admin
   cloud:

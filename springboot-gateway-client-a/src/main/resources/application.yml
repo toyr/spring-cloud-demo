@@ -1,7 +1,7 @@
 server:
   port: 9002
-  servlet:
-    context-path: /sgca
+#  servlet:
+#    context-path: /sgca
 spring:
   application:
     name: springboot-gateway-client-a
@@ -12,6 +12,8 @@ spring:
         url: http://127.0.0.1:8000
         instance:
           service-url: http://127.0.0.1:${server.port}
+          managementUrl: http://127.0.0.1:${server.port}${server.servlet.context-path}/actuator
+          health-url: http://127.0.0.1:${server.port}${server.servlet.context-path}/actuator/health
         username: admin
         password: admin
   cloud:
@@ -23,6 +25,9 @@ spring:
         password: nacos
         username: nacos
         ip: 127.0.0.1
+        metadata:
+          management.context-path: ${server.servlet.context-path}/actuator
+          management.health: /health
 management:
   endpoints:
     web:

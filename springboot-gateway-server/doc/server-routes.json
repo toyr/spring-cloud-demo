@@ -1,0 +1,23 @@
+[
+  {
+    "predicates":[
+      {
+        "args":{
+          "pattern":"/sgcd/**"
+        },
+        "name":"Path"
+      }
+    ],
+    "id":"test-sgcc",
+    "filters":[
+      {
+        "args":{
+          "parts":1
+        },
+        "name":"StripPrefix"
+      }
+    ],
+    "uri":"lb://springboot-gateway-client-a",
+    "order":1
+  }
+]
