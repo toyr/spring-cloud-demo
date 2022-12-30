@@ -30,10 +30,14 @@ spring:
           uri: lb://springboot-gateway-client-a
           predicates:
             - Path=/sgca/**
+          filters:
+            - StripPrefix=1
         - id: springboot-gateway-client-b
           uri: lb://springboot-gateway-client-b
           predicates:
             - Path=/sgcb/**
+          filters:
+            - StripPrefix=1
   ## spring boot admin
   boot:
     admin:
@@ -47,10 +51,10 @@ spring:
     port: 6379
     host: 127.0.0.1
     database: 0
-logging:
-  level:
-    org.springframework.cloud.*: debug
-    com.alibaba.nacos: debug
+#logging:
+#  level:
+#    org.springframework.cloud.*: debug
+#    com.alibaba.nacos: debug
 management:
   endpoints:
     web:
