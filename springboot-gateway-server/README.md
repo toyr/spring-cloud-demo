@@ -1,0 +1,1 @@
+nacos config 当namespace为public时，读取不到配置的bug

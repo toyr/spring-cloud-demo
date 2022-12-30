@@ -3,14 +3,22 @@ server:
 spring:
   application:
     name: springboot-gateway-server
+  config:
+    import:
+      - optional:nacos:springboot-gateway-server.yaml
   cloud:
     nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: public
+        username: nacos
+        password: nacos
       discovery:
         server-addr: 127.0.0.1:8848
         namespace: public
         group: DEFAULT_GROUP
-        password: nacos
         username: nacos
+        password: nacos
         ip: 127.0.0.1
     gateway:
       discovery:
@@ -38,6 +46,7 @@ spring:
 logging:
   level:
     org.springframework.cloud.*: debug
+    com.alibaba.nacos: debug
 management:
   endpoints:
     web:
@@ -47,3 +56,9 @@ management:
   endpoint:
     health:
       show-details: always
+gateway:
+  routes:
+    config:
+      data-id: server-routes
+      group: spb-gateway
+      namespace: "b8806beb-bfd0-4eda-a1f4-5301cebf35cd"
