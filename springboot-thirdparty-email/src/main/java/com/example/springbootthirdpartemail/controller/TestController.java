@@ -1,7 +1,7 @@
 package com.example.springbootthirdpartemail.controller;
 
-import com.example.springbootthirdpartemail.utils.SendMailModel;
-import com.example.springbootthirdpartemail.utils.SendMailUtil;
+import com.example.springbootthirdpartemail.util.SendMailModel;
+import com.example.springbootthirdpartemail.util.SendMailUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

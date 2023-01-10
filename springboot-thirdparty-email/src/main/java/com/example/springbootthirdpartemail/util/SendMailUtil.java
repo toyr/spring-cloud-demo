@@ -1,8 +1,7 @@
-package com.example.springbootthirdpartemail.utils;
+package com.example.springbootthirdpartemail.util;
 
 import com.example.springbootthirdpartemail.config.DeployParameter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.MailSender;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;

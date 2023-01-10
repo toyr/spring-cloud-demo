@@ -1,4 +1,4 @@
-package com.example.springbootthirdpartemail.utils;
+package com.example.springbootthirdpartemail.util;
 
 import lombok.Data;
 
